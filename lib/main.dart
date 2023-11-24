@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 import 'package:flutter/material.dart';
 
@@ -53,7 +55,7 @@ class _HomeState extends State<Home> {
   _launchApp() async {
     try {
       String externalAppPath =
-          "C:\\Users\\D E L L\\AppData\\Local\\MongoDBCompass\\MongoDBCompass.exe";
+          "C:\\Program Files (x86)\\Atre Software\\atre_windows.exe";
 
       await Process.start(externalAppPath, []);
     } catch (e) {
@@ -61,4 +63,55 @@ class _HomeState extends State<Home> {
       return false;
     }
   }
+
+  // Future<void> checkAndLaunchExternalApp() async {
+  //   // Replace 'external_app.exe' with the actual executable file name of the external app
+  //   String externalAppName = 'atre_windows.exe';
+
+  //   // Try to find the path of the installed app
+  //   String? appPath = await findApplicationPath(externalAppName);
+
+  //   if (appPath != null) {
+  //     // If found, launch the external app
+  //     Process.start(appPath, []);
+  //   } else {
+  //     // If not found, show a dialog prompting the user to install the app
+  //     showDialog(
+  //       context: context,
+  //       builder: (BuildContext context) {
+  //         return AlertDialog(
+  //           title: const Text('App Not Found'),
+  //           content: const Text(
+  //               'The application is installed, but its path could not be determined.'),
+  //           actions: <Widget>[
+  //             TextButton(
+  //               onPressed: () {
+  //                 Navigator.of(context).pop();
+  //               },
+  //               child: const Text('OK'),
+  //             ),
+  //           ],
+  //         );
+  //       },
+  //     );
+  //   }
+  // }
+
+  // Future<String?> findApplicationPath(String appName) async {
+  //   // Common installation directories on Windows
+  //   List<String> commonDirectories = [
+  //     r'C:\\Program Files',
+  //     r'C:\\Program Files (x86)',
+  //   ];
+
+  //   for (String directory in commonDirectories) {
+  //     String fullPath = '$directory\\$appName';
+
+  //     if (await File(fullPath).exists()) {
+  //       return fullPath;
+  //     }
+  //   }
+
+  //   return null;
+  // }
 }
